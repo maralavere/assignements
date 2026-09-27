@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://chuuq5h7xvi6v"]
+
+[ext_resource type="Script" uid="uid://cy6nwujqok4lu" path="res://scripts/platform.gd" id="1_nlgqw"]
+[ext_resource type="Texture2D" uid="uid://drhb5aod4g1sq" path="res://assets/paddle.png" id="2_507ja"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4plt3"]
+size = Vector2(49.583332, 8)
+
+[node name="platform" type="CharacterBody2D" unique_id=1727591081]
+scale = Vector2(1.2, 1.2)
+script = ExtResource("1_nlgqw")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1394875602]
+position = Vector2(3.8146973e-06, 0)
+scale = Vector2(1.4166666, 2)
+texture = ExtResource("2_507ja")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2066304920]
+position = Vector2(-1.9073486e-06, 0)
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_4plt3")
+
+[node name="Button" type="Button" parent="." unique_id=1405455467]
+z_index = -1
+offset_left = -50.0
+offset_top = -8.333332
+offset_right = 49.166656
+offset_bottom = 8.0
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
+[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
