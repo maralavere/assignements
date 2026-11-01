@@ -1,3 +1,29 @@
 [gd_resource type="Theme" format=3 uid="uid://boin4f30ivras"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wvktn"]
+bg_color = Color(0.99105185, 0.9410454, 0.96114117, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.9607843, 0.4, 0.91764706, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hmy8i"]
+bg_color = Color(0.99105185, 0.9410454, 0.96114117, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.5921569, 1, 0.3254902, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e1x85"]
+bg_color = Color(0.5158667, 0.5158667, 0.51586664, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l52kk"]
+bg_color = Color(0.32116503, 0.7056621, 9.62615e-07, 1)
+
 [resource]
+PanelContainer/styles/default = SubResource("StyleBoxFlat_wvktn")
+PanelContainer/styles/selected = SubResource("StyleBoxFlat_hmy8i")
+ProgressBar/styles/background = SubResource("StyleBoxFlat_e1x85")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_l52kk")

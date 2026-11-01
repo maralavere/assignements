@@ -1,6 +1,13 @@
 [gd_scene format=3 uid="uid://di8dx8xwts3fu"]
 
 [ext_resource type="Theme" uid="uid://boin4f30ivras" path="res://theme.tres" id="1_tgwut"]
+[ext_resource type="Script" uid="uid://cou31ijhhvsrw" path="res://Scripts/health_container.gd" id="2_5twjh"]
+[ext_resource type="Script" uid="uid://bqh0jvx5w0agu" path="res://Scripts/hotbar_container.gd" id="3_c80oo"]
+[ext_resource type="Script" uid="uid://bfsnwxp0lm4ir" path="res://Scripts/ialogue_container.gd" id="3_hmy8i"]
+
+[sub_resource type="Theme" id="Theme_f6duw"]
+
+[sub_resource type="Theme" id="Theme_hmy8i"]
 
 [node name="Control" type="Control" unique_id=1783249751]
 layout_mode = 3
@@ -15,6 +22,7 @@ theme = ExtResource("1_tgwut")
 layout_mode = 1
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("2_5twjh")
 
 [node name="HealthLabel" type="Label" parent="HealthContainer" unique_id=309183993]
 layout_mode = 2
@@ -35,50 +43,105 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -20.0
-offset_top = -77.0
-offset_right = 20.0
+offset_left = -250.0
+offset_top = -164.0
+offset_right = 250.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="DialogueContainer" type="VBoxContainer" parent="VBoxContainer" unique_id=1183356990]
+[node name="DialogueContainer" type="PanelContainer" parent="VBoxContainer" unique_id=1296166014]
 layout_mode = 2
+theme = SubResource("Theme_f6duw")
 
-[node name="DialogueText" type="Label" parent="VBoxContainer/DialogueContainer" unique_id=75730911]
+[node name="DialogueContainer" type="VBoxContainer" parent="VBoxContainer/DialogueContainer" unique_id=861075166]
+custom_minimum_size = Vector2(500, 100)
 layout_mode = 2
+size_flags_horizontal = 4
+theme = SubResource("Theme_hmy8i")
+script = ExtResource("3_hmy8i")
 
-[node name="Continue" type="Label" parent="VBoxContainer/DialogueContainer" unique_id=361073237]
+[node name="DialogueText" type="Label" parent="VBoxContainer/DialogueContainer/DialogueContainer" unique_id=75730911]
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Control" type="Control" parent="VBoxContainer/DialogueContainer/DialogueContainer" unique_id=1748393311]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Continue" type="Button" parent="VBoxContainer/DialogueContainer/DialogueContainer" unique_id=1751402547]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "Continue"
+
+[node name="Control2" type="Control" parent="VBoxContainer" unique_id=885130793]
+layout_mode = 2
+size_flags_vertical = 3
 
 [node name="HotbarContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=935367982]
 layout_mode = 2
+size_flags_horizontal = 4
+script = ExtResource("3_c80oo")
 
 [node name="Slot1" type="PanelContainer" parent="VBoxContainer/HotbarContainer" unique_id=717097159]
+custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 
 [node name="Label1" type="Label" parent="VBoxContainer/HotbarContainer/Slot1" unique_id=983198938]
 layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(1, 0.18431373, 0.57254905, 1)
+text = "1"
+horizontal_alignment = 2
+vertical_alignment = 2
 
 [node name="Slot2" type="PanelContainer" parent="VBoxContainer/HotbarContainer" unique_id=1897487078]
+custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 
 [node name="Label2" type="Label" parent="VBoxContainer/HotbarContainer/Slot2" unique_id=515903606]
 layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(1, 0.18431373, 0.57254905, 1)
+text = "2"
+horizontal_alignment = 2
+vertical_alignment = 2
 
 [node name="Slot3" type="PanelContainer" parent="VBoxContainer/HotbarContainer" unique_id=1828083241]
+custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 
 [node name="Label3" type="Label" parent="VBoxContainer/HotbarContainer/Slot3" unique_id=1782763959]
 layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(1, 0.18431373, 0.57254905, 1)
+text = "3"
+horizontal_alignment = 2
+vertical_alignment = 2
 
 [node name="Slot4" type="PanelContainer" parent="VBoxContainer/HotbarContainer" unique_id=1852147667]
+custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 
 [node name="Label4" type="Label" parent="VBoxContainer/HotbarContainer/Slot4" unique_id=1547238301]
 layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(1, 0.18431373, 0.57254905, 1)
+text = "4"
+horizontal_alignment = 2
+vertical_alignment = 2
 
 [node name="Slot5" type="PanelContainer" parent="VBoxContainer/HotbarContainer" unique_id=1881532656]
+custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 
 [node name="Label5" type="Label" parent="VBoxContainer/HotbarContainer/Slot5" unique_id=1777065919]
 layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(1, 0.18431373, 0.57254905, 1)
+text = "5"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[connection signal="pressed" from="VBoxContainer/DialogueContainer/DialogueContainer/Continue" to="VBoxContainer/DialogueContainer/DialogueContainer" method="_on_continue_pressed"]
