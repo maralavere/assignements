@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://c381v2bqtu8ua"]
+
+[ext_resource type="Script" uid="uid://crsnyfhn01ui0" path="res://scripts/big_kitty.gd" id="1_fxr2m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4plt3"]
+size = Vector2(64, 48)
+
+[node name="Big Kitty" type="CharacterBody2D" unique_id=403027161]
+script = ExtResource("1_fxr2m")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=470274570]
+offset_right = 64.0
+offset_bottom = 48.0
+color = Color(0.2877234, 0.7069496, 0.32290384, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1457599280]
+position = Vector2(32, 24)
+shape = SubResource("RectangleShape2D_4plt3")
